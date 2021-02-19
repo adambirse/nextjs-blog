@@ -1,0 +1,10 @@
+.scroller {
+  margin: 0 auto;
+  height: 500px;
+  width: 300px;
+  overflow: auto;
+}
+
+.item {
+  margin: 10px 0;
+}
