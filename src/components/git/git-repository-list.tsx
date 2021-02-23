@@ -1,6 +1,6 @@
-import { GitRepository } from "./git-repository";
-const utilStyles = require("../../styles/utils.module.css");
-const listStyles = require("./git-repository-list.module.css");
+import { GitRepository } from './git-repository';
+const utilStyles = require('../../styles/utils.module.css');
+const listStyles = require('./git-repository-list.module.css');
 
 interface Repositories {
   repositories: Repository[];
@@ -8,8 +8,7 @@ interface Repositories {
 
 interface Repository {
   name: string;
-  // TODO changed because of git api format. need to sort out destructuring in git.tsx
-  html_url: string;
+  url: string;
 }
 
 export const GitRepositoryList: React.FC<Repositories> = ({ repositories }) => {
@@ -21,7 +20,7 @@ export const GitRepositoryList: React.FC<Repositories> = ({ repositories }) => {
           {repositories.map((repo, pos) => (
             <div className={listStyles.item} key={pos}>
               <li className={utilStyles.listItem}>
-                <GitRepository name={repo.name} url={repo.html_url} />
+                <GitRepository name={repo.name} url={repo.url} />
               </li>
             </div>
           ))}

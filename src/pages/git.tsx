@@ -1,9 +1,9 @@
-import Head from "next/head";
-import React from "react";
-import { GitHeader } from "../components/git/git-header";
-import { GitRepositoryList } from "../components/git/git-repository-list";
-import Layout from "../components/layout";
-import { git_account } from "../config/customisation";
+import Head from 'next/head';
+import React from 'react';
+import { GitHeader } from '../components/git/git-header';
+import { GitRepositoryList } from '../components/git/git-repository-list';
+import Layout from '../components/layout';
+import { git_account } from '../config/customisation';
 
 export async function getServerSideProps() {
   const res = await fetch(`https://api.github.com/users/${git_account}/repos`);
@@ -16,10 +16,22 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      repositories: data,
+      repositories: extract(data),
     },
   };
 }
+
+const extract = (data: any) => {
+  let respositories = [];
+  data.map((repo) => {
+    respositories.push({
+      id: repo.id,
+      name: repo.full_name,
+      url: repo.html_url,
+    });
+  });
+  return respositories;
+};
 
 export default function Git({ repositories }) {
   return (
