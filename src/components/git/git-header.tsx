@@ -1,12 +1,15 @@
-import Link from "next/link";
-import React from "react";
-import { git_account } from "../../config/customisation";
+import Link from 'next/link';
+import React from 'react';
 
-export const GitHeader: React.FC = () => {
+interface GitOverviewProps {
+  name: string;
+}
+
+export const GitHeader: React.FC<GitOverviewProps> = ({ name }) => {
   return (
     <section>
       <p>
-        <Link href={`https://github.com/${git_account}/`}>
+        <Link href={`https://github.com/${name}/`}>
           <a target="_blank">My git hub account</a>
         </Link>
       </p>

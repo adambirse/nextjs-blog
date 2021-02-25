@@ -39,7 +39,7 @@ export default function Git({ repositories }) {
       <Head>
         <title>Git</title>
       </Head>
-      <GitHeader />
+      <GitHeader name={git_account} />
       <GitRepositoryList repositories={repositories} />
     </Layout>
   );
