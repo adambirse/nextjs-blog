@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import Date from "../components/date";
-const utilStyles = require("../styles/utils.module.css");
+import React from 'react';
+import Link from 'next/link';
+import Date from '../components/date';
+const utilStyles = require('../styles/utils.module.css');
 
 export interface Props {
   allPostsData: PostData[];
