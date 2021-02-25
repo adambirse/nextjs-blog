@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 interface GitOverviewProps {
   name: string;
@@ -7,18 +7,27 @@ interface GitOverviewProps {
 }
 
 export const GitHeader: React.FC<GitOverviewProps> = ({ name, repoCount }) => {
+  const [toggle, setToggle] = useState(false);
   return (
     <section>
-      <p>
+      <div>
         <Link href={`https://github.com/${name}/`}>
           <a target="_blank">My git hub account</a>
         </Link>
-        {repoCount && (
-          <div id="repos">
-            <p>{repoCount} public repositories.</p>
-          </div>
-        )}
-      </p>
+        <p
+          id="clickable"
+          onClick={() => {
+            setToggle(!toggle);
+          }}
+        >
+          Click for more details.
+          {repoCount && toggle && (
+            <p id="repos">
+              <p>{repoCount} public repositories.</p>
+            </p>
+          )}
+        </p>
+      </div>
     </section>
   );
 };

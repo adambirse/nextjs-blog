@@ -5,16 +5,30 @@ const chai = require('chai');
 const expect = chai.expect;
 
 describe('Git header component', () => {
-  it('should render with all data', function () {
+  it('should render initially not showing additional data', function () {
     const wrap = shallow(<GitHeader name="myname" repoCount={3} />);
-    expect(wrap.find('a').text()).to.equal('My git hub account');
+    expectLinkToGithub(wrap);
+    expect(wrap.find('#repos').length == 0).to.be.true;
+  });
+
+  it('when clicked should show additional data', function () {
+    const wrap = shallow(<GitHeader name="myname" repoCount={3} />);
+    expectLinkToGithub(wrap);
+    expandAccordion(wrap);
     expect(wrap.find('#repos').text()).to.equal('3 public repositories.');
-    expect(wrap.find('Link').prop('href')).to.equal('https://github.com/myname/');
   });
 
   it('should render with only a repo name', function () {
     const wrap = shallow(<GitHeader name="myname" />);
-    expect(wrap.find('a').text()).to.equal('My git hub account');
-    expect(wrap.find('Link').prop('href')).to.equal('https://github.com/myname/');
+    expectLinkToGithub(wrap);
   });
 });
+
+const expectLinkToGithub = (wrap: any) => {
+  expect(wrap.find('a').text()).to.equal('My git hub account');
+  expect(wrap.find('Link').prop('href')).to.equal('https://github.com/myname/');
+};
+const expandAccordion = (wrap: any) => {
+  expect(wrap.find('#repos').length == 0).to.be.true;
+  wrap.find('#clickable').simulate('click');
+};
