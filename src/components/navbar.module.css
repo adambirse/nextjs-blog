@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: rgb(139, 83, 83);
+  background-color: rgb(209, 193, 193);
 }
 
 .li {
@@ -12,7 +12,7 @@
 
 .li a {
   display: block;
-  color: white;
+  color: #444;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -20,5 +20,5 @@
 
 /* Change the link color to #111 (black) on hover */
 .li a:hover {
-  background-color: rgb(204, 19, 19);
+  background-color: rgb(139, 86, 86);
 }

@@ -1,3 +1,5 @@
+import React from 'react';
+import { Accordion } from '../accordion/accordion';
 import { GitRepository } from './git-repository';
 const utilStyles = require('../../styles/utils.module.css');
 const listStyles = require('./git-repository-list.module.css');
@@ -14,7 +16,14 @@ interface Repository {
 export const GitRepositoryList: React.FC<Repositories> = ({ repositories }) => {
   return (
     <>
-      <h2>My git repositories</h2>
+      <Accordion title={'Repositories'} content={getContent(repositories)}></Accordion>
+    </>
+  );
+};
+
+function getContent(repositories) : React.ReactNode {
+  return (
+    <>
       <div className={listStyles.scroller}>
         <ul className={utilStyles.list}>
           {repositories.map((repo, pos) => (
@@ -28,4 +37,4 @@ export const GitRepositoryList: React.FC<Repositories> = ({ repositories }) => {
       </div>
     </>
   );
-};
+}

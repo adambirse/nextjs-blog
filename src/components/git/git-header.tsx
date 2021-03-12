@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
+import { Accordion } from '../accordion/accordion';
 
 interface GitOverviewProps {
   name: string;
@@ -7,27 +8,28 @@ interface GitOverviewProps {
 }
 
 export const GitHeader: React.FC<GitOverviewProps> = ({ name, repoCount }) => {
-  const [toggle, setToggle] = useState(false);
   return (
-    <section>
-      <div>
-        <Link href={`https://github.com/${name}/`}>
-          <a target="_blank">My git hub account</a>
-        </Link>
-        <p
-          id="clickable"
-          onClick={() => {
-            setToggle(!toggle);
-          }}
-        >
-          Click for more details.
-          {repoCount && toggle && (
+    <>
+      <Accordion title={'Overview'} content={getContent(name, repoCount)}></Accordion>
+    </>
+  );
+};
+
+const getContent = (name: string, repoCount: number) => {
+  return (
+    <>
+      <section>
+        <div>
+          <Link href={`https://github.com/${name}/`}>
+            <a target="_blank">account</a>
+          </Link>
+          {repoCount && (
             <p id="repos">
               <p>{repoCount} public repositories.</p>
             </p>
           )}
-        </p>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };

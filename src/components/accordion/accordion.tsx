@@ -5,7 +5,7 @@ const styles = require('./accordion.module.css');
 
 interface AccordionProps {
   title: string;
-  content: string;
+  content: React.ReactNode;
 }
 
 export const Accordion: React.FC<AccordionProps> = (props) => {
@@ -28,7 +28,7 @@ export const Accordion: React.FC<AccordionProps> = (props) => {
         <Chevron className={`${setRotate}`} width={10} fill={'#777'} />
       </button>
       <div ref={content} style={{ maxHeight: `${setHeight}` }} className={styles.accordion__content}>
-        <div className={styles.accordion__text} dangerouslySetInnerHTML={{ __html: props.content }} />
+        {<div className={styles.accordion__text}>{props.content}</div>}
       </div>
     </div>
   );

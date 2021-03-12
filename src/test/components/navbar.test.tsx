@@ -10,7 +10,7 @@ describe('Nav bar component', () => {
     const wrap = shallow(<NavBar />);
 
     assertLink(wrap, '/', 'Home');
-    assertLink(wrap, '/git', 'git hub statistics');
+    assertLink(wrap, '/git', 'GitHub');
   });
 });
 

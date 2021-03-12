@@ -1,34 +1,66 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import { GitHeader } from '../../../components/git/git-header';
+import Link from 'next/link';
 const chai = require('chai');
 const expect = chai.expect;
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
 describe('Git header component', () => {
-  it('should render initially not showing additional data', function () {
-    const wrap = shallow(<GitHeader name="myname" repoCount={3} />);
-    expectLinkToGithub(wrap);
-    expect(wrap.find('#repos').length == 0).to.be.true;
+  it('should render with title', function () {
+    const accordionComponent = renderAndGetAccordion();
+    expect(accordionComponent.length == 1).to.be.true;
+    expect(accordionComponent.props().title).to.equal('Overview');
   });
 
-  it('when clicked should show additional data', function () {
-    const wrap = shallow(<GitHeader name="myname" repoCount={3} />);
-    expectLinkToGithub(wrap);
-    expandAccordion(wrap);
-    expect(wrap.find('#repos').text()).to.equal('3 public repositories.');
+  it('should render initially with repos content', function () {
+    const accordionComponent = renderAndGetAccordion(3);
+    expect(reactElementToJSXString(accordionComponent.props().content)).to.equal(
+      reactElementToJSXString(getContentWithRepo(3))
+    );
   });
 
-  it('should render with only a repo name', function () {
-    const wrap = shallow(<GitHeader name="myname" />);
-    expectLinkToGithub(wrap);
+  it('should render initially without repos content', function () {
+    const accordionComponent = renderAndGetAccordion();
+    expect(reactElementToJSXString(accordionComponent.props().content)).to.equal(
+      reactElementToJSXString(getContentWithoutRepo())
+    );
   });
 });
 
-const expectLinkToGithub = (wrap: any) => {
-  expect(wrap.find('a').text()).to.equal('My git hub account');
-  expect(wrap.find('Link').prop('href')).to.equal('https://github.com/myname/');
+const getContentWithRepo = (repoCount: number) => {
+  return (
+    <>
+      <section>
+        <div>
+          <Link href={`https://github.com/myname/`}>
+            <a target="_blank">account</a>
+          </Link>
+          <p id="repos">
+            <p>{repoCount} public repositories.</p>
+          </p>
+        </div>
+      </section>
+    </>
+  );
 };
-const expandAccordion = (wrap: any) => {
-  expect(wrap.find('#repos').length == 0).to.be.true;
-  wrap.find('#clickable').simulate('click');
+
+const getContentWithoutRepo = () => {
+  return (
+    <>
+      <section>
+        <div>
+          <Link href={`https://github.com/myname/`}>
+            <a target="_blank">account</a>
+          </Link>
+        </div>
+      </section>
+    </>
+  );
 };
+function renderAndGetAccordion(repoCount?: number) {
+  const wrap = repoCount
+    ? shallow(<GitHeader name="myname" repoCount={repoCount} />)
+    : shallow(<GitHeader name="myname" />);
+  return wrap.find('Accordion');
+}

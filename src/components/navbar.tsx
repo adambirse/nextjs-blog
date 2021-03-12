@@ -1,7 +1,7 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
-const navStyles = require("./navbar.module.css");
+const navStyles = require('./navbar.module.css');
 
 export const NavBar: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ export const NavBar: React.FC = () => {
         </li>
         <li className={navStyles.li}>
           <Link href="/git">
-            <a>git hub statistics</a>
+            <a>GitHub</a>
           </Link>
         </li>
       </ul>
