@@ -12,14 +12,14 @@
     "eslint:fix": "eslint src --fix"
   },
   "dependencies": {
-    "@babel/cli": "^7.13.0",
-    "@babel/core": "^7.13.8",
-    "@babel/preset-env": "^7.13.9",
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "@babel/register": "^7.13.8",
-    "chai": "^4.3.3",
+    "chai": "^4.3.4",
     "date-fns": "^2.19.0",
     "gray-matter": "^4.0.2",
-    "mocha": "^8.3.1",
+    "mocha": "^8.3.2",
     "next": "^10.0.8",
     "node-mocks-http": "^1.10.1",
     "react": "16.13.1",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/chai": "^4.2.15",
     "@types/mocha": "^8.2.1",
-    "@types/node": "^14.14.32",
+    "@types/node": "^14.14.34",
     "@types/react": "^17.0.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
