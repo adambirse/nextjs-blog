@@ -1,1 +1,1 @@
-export const git_account = 'adambirse'
+export const GIT_ACCOUNT = 'adambirse'

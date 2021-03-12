@@ -3,7 +3,7 @@ import React from 'react';
 import { GitHeader } from '../components/git/git-header';
 import { GitRepositoryList } from '../components/git/git-repository-list';
 import Layout from '../components/layout';
-import { git_account } from '../config/customisation';
+import { GIT_ACCOUNT } from '../config/customisation';
 
 export async function getServerSideProps() {
   const repositories = await getRepositories();
@@ -24,7 +24,7 @@ export async function getServerSideProps() {
 
 const mapOverview = (data: any) => {
   return {
-    name: git_account,
+    name: GIT_ACCOUNT,
     repoCount: data.public_repos,
   };
 };
@@ -42,13 +42,13 @@ const mapRepositories = (data: any) => {
 };
 
 async function getRepositories() {
-  const res = await fetch(`https://api.github.com/users/${git_account}/repos`);
+  const res = await fetch(`https://api.github.com/users/${GIT_ACCOUNT}/repos`);
   const repositories = await res.json();
   return repositories;
 }
 
 async function getOverview() {
-  const res = await fetch(`https://api.github.com/users/${git_account}`);
+  const res = await fetch(`https://api.github.com/users/${GIT_ACCOUNT}`);
   const overview = await res.json();
   return overview;
 }
