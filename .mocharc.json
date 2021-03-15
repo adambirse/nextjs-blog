@@ -1,7 +1,5 @@
 {
-  "extension": [
-    "ts"
-  ],
+  "extension": ["ts"],
   "spec": "src/**/*.test.tsx",
   "require": [
     "src/test/mocha.env",

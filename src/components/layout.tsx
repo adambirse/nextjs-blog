@@ -1,10 +1,10 @@
-import React from "react";
-import Head from "next/head";
-const styles = require("./layout.module.scss");
-const utilStyles = require("../styles/utils.module.scss");
-import { NavBar } from "./navbar";
+import React from 'react';
+import Head from 'next/head';
+const styles = require('./layout.module.scss');
+const utilStyles = require('../styles/utils.module.scss');
+import { NavBar } from './navbar';
 
-const name = "Adam Birse";
+const name = 'Adam Birse';
 export const siteTitle = `Personal site - ${name}`;
 
 export default function Layout({ children, home }) {
@@ -12,10 +12,7 @@ export default function Layout({ children, home }) {
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
+        <meta name="description" content="Learn how to build a personal website using Next.js" />
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(

@@ -21,7 +21,7 @@ export const GitRepositoryList: React.FC<Repositories> = ({ repositories }) => {
   );
 };
 
-function getContent(repositories) : React.ReactNode {
+function getContent(repositories): React.ReactNode {
   return (
     <>
       <div className={listStyles.scroller}>

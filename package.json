@@ -11,7 +11,11 @@
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
     "sasslint": "sass-lint -v",
-    "sasslint:fix": "sass-lint-auto-fix"
+    "sasslint:fix": "sass-lint-auto-fix",
+    "lint": "run-s prettier eslint",
+    "lint:fix": "run-s prettier:fix eslint:fix",
+    "prettier": "npx prettier --check .",
+    "prettier:fix": "npx prettier --write ."
   },
   "dependencies": {
     "@babel/cli": "^7.13.10",
@@ -24,6 +28,7 @@
     "mocha": "^8.3.2",
     "next": "^10.0.9",
     "node-mocks-http": "^1.10.1",
+    "npm-run-all": "^4.1.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "remark": "^13.0.0",
@@ -58,13 +63,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged --quiet",
+      "pre-push": "npm run lint"
     }
   },
   "lint-staged": {
-    "**/*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "*.{js,json,ts,tsx,yaml}": "prettier --write"
   }
 }
