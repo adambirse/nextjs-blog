@@ -1,13 +1,13 @@
 import React from 'react';
 
 type CardProps = {
-  title: string,
-  paragraph: string
-}
+  title: string;
+  paragraph: string;
+};
 
-export const Card = ({ title, paragraph }: CardProps) => <aside>
-  <h2>{ title }</h2>
-  <p>
-    { paragraph }
-  </p>
-</aside>
+export const Card = ({ title, paragraph }: CardProps) => (
+  <aside>
+    <h2>{title}</h2>
+    <p>{paragraph}</p>
+  </aside>
+);
