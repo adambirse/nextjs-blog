@@ -1,12 +1,12 @@
 $navbar_colour: #444;
-$list_backround_colour: #D1C1C1;
-$list_hover_colour: #8B5656;
+$list_backround_colour: #d1c1c1;
+$list_hover_colour: #8b5656;
 .ul {
+  background-color: $list_backround_colour;
   list-style-type: none;
   margin: 0;
-  padding: 0;
   overflow: hidden;
-  background-color: $list_backround_colour;
+  padding: 0;
 }
 
 .li {
@@ -14,10 +14,10 @@ $list_hover_colour: #8B5656;
 }
 
 .li a {
-  display: block;
   color: $navbar_colour;
-  text-align: center;
+  display: block;
   padding: 14px 16px;
+  text-align: center;
   text-decoration: none;
 }
 
