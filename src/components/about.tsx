@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion } from './accordion/accordion';
-const utilStyles = require('../styles/utils.module.css');
+const utilStyles = require('../styles/utils.module.scss');
 
 export const About: React.FC = () => {
   return (

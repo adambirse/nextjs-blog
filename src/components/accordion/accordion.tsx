@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Chevron } from './chevron';
 
-const styles = require('./accordion.module.css');
+const styles = require('./accordion.module.scss');
 
 interface AccordionProps {
   title: string;
