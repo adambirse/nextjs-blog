@@ -5,7 +5,7 @@ const utilStyles = require("../styles/utils.module.css");
 import { NavBar } from "./navbar";
 
 const name = "Adam Birse";
-export const siteTitle = `Personal site - ${name}`;
+export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }) {
   return (
