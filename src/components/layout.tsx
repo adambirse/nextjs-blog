@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
-const styles = require("./layout.module.css");
-const utilStyles = require("../styles/utils.module.css");
+const styles = require("./layout.module.scss");
+const utilStyles = require("../styles/utils.module.scss");
 import { NavBar } from "./navbar";
 
 const name = "Adam Birse";

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-const navStyles = require('./navbar.module.css');
+const navStyles = require('./navbar.module.scss');
 
 export const NavBar: React.FC = () => {
   return (

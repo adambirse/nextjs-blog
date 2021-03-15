@@ -1,8 +1,8 @@
 import React from 'react';
 import { Accordion } from '../accordion/accordion';
 import { GitRepository } from './git-repository';
-const utilStyles = require('../../styles/utils.module.css');
-const listStyles = require('./git-repository-list.module.css');
+const utilStyles = require('../../styles/utils.module.scss');
+const listStyles = require('./git-repository-list.module.scss');
 
 interface Repositories {
   repositories: Repository[];

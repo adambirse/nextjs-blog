@@ -1,9 +1,12 @@
+$navbar_colour: #444;
+$list_backround_colour: #d1c1c1;
+$list_hover_colour: #8b5656;
 .ul {
+  background-color: $list_backround_colour;
   list-style-type: none;
   margin: 0;
-  padding: 0;
   overflow: hidden;
-  background-color: rgb(209, 193, 193);
+  padding: 0;
 }
 
 .li {
@@ -11,14 +14,14 @@
 }
 
 .li a {
+  color: $navbar_colour;
   display: block;
-  color: #444;
-  text-align: center;
   padding: 14px 16px;
+  text-align: center;
   text-decoration: none;
 }
 
 /* Change the link color to #111 (black) on hover */
 .li a:hover {
-  background-color: rgb(139, 86, 86);
+  background-color: $list_hover_colour;
 }
