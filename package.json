@@ -3,19 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "test": "mocha",
-    "test:watch": "npm run test -- --watch",
+    "dev": "next dev",
     "eslint": "eslint src",
     "eslint:fix": "eslint src --fix",
-    "sasslint": "sass-lint -v",
-    "sasslint:fix": "sass-lint-auto-fix",
     "lint": "run-s prettier eslint",
     "lint:fix": "run-s prettier:fix eslint:fix",
+    "package:fix": "format-package -w",
     "prettier": "npx prettier --check .",
-    "prettier:fix": "npx prettier --write ."
+    "prettier:fix": "npx prettier --write .",
+    "sasslint": "sass-lint -v",
+    "sasslint:fix": "sass-lint-auto-fix",
+    "start": "next start",
+    "test": "mocha",
+    "test:watch": "npm run test -- --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --quiet",
+      "pre-push": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
     "@babel/cli": "^7.13.10",
@@ -24,6 +34,7 @@
     "@babel/register": "^7.13.8",
     "chai": "^4.3.4",
     "date-fns": "^2.19.0",
+    "format-package": "^6.1.0",
     "gray-matter": "^4.0.2",
     "mocha": "^8.3.2",
     "next": "^10.0.9",
@@ -60,14 +71,5 @@
     "sass-lint-auto-fix": "^0.21.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --quiet",
-      "pre-push": "npm run lint"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,ts,tsx,yaml}": "prettier --write"
   }
 }
