@@ -16,7 +16,7 @@ interface Repository {
 export const GitRepositoryList: React.FC<Repositories> = ({ repositories }) => {
   return (
     <>
-      <Accordion title={'Repositories'} content={getContent(repositories)}></Accordion>
+      <Accordion title={'Repositories'} children={getContent(repositories)}></Accordion>
     </>
   );
 };

@@ -15,14 +15,14 @@ describe('Git header component', () => {
 
   it('should render initially with repos content', function () {
     const accordionComponent = renderAndGetAccordion(3);
-    expect(reactElementToJSXString(accordionComponent.props().content)).to.equal(
+    expect(reactElementToJSXString(accordionComponent.props().children)).to.equal(
       reactElementToJSXString(getContentWithRepo(3))
     );
   });
 
   it('should render initially without repos content', function () {
     const accordionComponent = renderAndGetAccordion();
-    expect(reactElementToJSXString(accordionComponent.props().content)).to.equal(
+    expect(reactElementToJSXString(accordionComponent.props().children)).to.equal(
       reactElementToJSXString(getContentWithoutRepo())
     );
   });
@@ -58,6 +58,7 @@ const getContentWithoutRepo = () => {
     </>
   );
 };
+
 function renderAndGetAccordion(repoCount?: number) {
   const wrap = repoCount
     ? shallow(<GitHeader name="myname" repoCount={repoCount} />)

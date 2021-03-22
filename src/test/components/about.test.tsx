@@ -10,6 +10,6 @@ describe('About component', () => {
     const accordionComponent = wrap.find('Accordion');
     expect(accordionComponent.length == 1).to.be.true;
     expect(accordionComponent.props().title).to.equal('About me');
-    expect(accordionComponent.props().content).to.equal('I am a software engineer.');
+    expect(accordionComponent.props().children).to.equal('I am a software engineer.');
   });
 });

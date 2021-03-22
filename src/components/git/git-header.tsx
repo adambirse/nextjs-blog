@@ -10,7 +10,7 @@ interface GitOverviewProps {
 export const GitHeader: React.FC<GitOverviewProps> = ({ name, repoCount }) => {
   return (
     <>
-      <Accordion title={'Overview'} content={getContent(name, repoCount)}></Accordion>
+      <Accordion title={'Overview'} children={getContent(name, repoCount)}></Accordion>
     </>
   );
 };
