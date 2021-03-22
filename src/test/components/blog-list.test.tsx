@@ -23,6 +23,7 @@ describe('Blog list component', () => {
   it('should render with no data', function () {
     const wrap = shallow(<Blog allPostsData={[]} />);
     expect(wrap.find('h2').text()).to.equal('Blog');
+    expect(wrap.find('div').text()).to.equal('No blogs published yet, please come back later');
     expectChildElements(wrap, 0);
   });
 });
