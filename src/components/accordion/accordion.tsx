@@ -8,7 +8,7 @@ interface AccordionProps {
   children: React.ReactNode;
 }
 
-export const Accordion: React.FC<AccordionProps> = ({title, children}): JSX.Element => {
+export const Accordion: React.FC<AccordionProps> = ({ title, children }): JSX.Element => {
   const [setActive, setActiveState] = useState('');
   const [setHeight, setHeightState] = useState('0px');
   const [setRotate, setRotateState] = useState(`${styles.accordion__icon}`);
