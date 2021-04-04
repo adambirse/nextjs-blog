@@ -31,30 +31,22 @@ describe('Git header component', () => {
 
 const getContentWithRepo = (repoCount: number) => {
   return (
-    <>
-      <section>
-        <div>
-          <Link href={`https://github.com/myname/`}>
-            <a target="_blank">account</a>
-          </Link>
-          <Paragraph id="repos">{repoCount} public repositories.</Paragraph>
-        </div>
-      </section>
-    </>
+    <section>
+      <Link href={`https://github.com/myname/`}>
+        <a target="_blank">account</a>
+      </Link>
+      <Paragraph id="repos">{repoCount} public repositories.</Paragraph>
+    </section>
   );
 };
 
 const getContentWithoutRepo = () => {
   return (
-    <>
-      <section>
-        <div>
-          <Link href={`https://github.com/myname/`}>
-            <a target="_blank">account</a>
-          </Link>
-        </div>
-      </section>
-    </>
+    <section>
+      <Link href={`https://github.com/myname/`}>
+        <a target="_blank">account</a>
+      </Link>
+    </section>
   );
 };
 

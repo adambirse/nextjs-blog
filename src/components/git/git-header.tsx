@@ -10,23 +10,13 @@ interface GitOverviewProps {
 
 export const GitHeader: React.FC<GitOverviewProps> = ({ name, repoCount }) => {
   return (
-    <>
-      <Accordion title={'Overview'} children={getContent(name, repoCount)}></Accordion>
-    </>
-  );
-};
-
-const getContent = (name: string, repoCount: number) => {
-  return (
-    <>
+    <Accordion title={'Overview'}>
       <section>
-        <div>
-          <Link href={`https://github.com/${name}/`}>
-            <a target="_blank">account</a>
-          </Link>
-          {repoCount && <Paragraph id="repos">{repoCount} public repositories.</Paragraph>}
-        </div>
+        <Link href={`https://github.com/${name}/`}>
+          <a target="_blank">account</a>
+        </Link>
+        {repoCount && <Paragraph id="repos">{repoCount} public repositories.</Paragraph>}
       </section>
-    </>
+    </Accordion>
   );
 };

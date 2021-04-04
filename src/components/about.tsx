@@ -5,7 +5,9 @@ const utilStyles = require('../styles/utils.module.scss');
 export const About: React.FC = () => {
   return (
     <section className={utilStyles.headingMd}>
-      <Accordion title={'About me'} children={'I am a software engineer.'}></Accordion>
+      <Accordion title={'About me'}>
+      I am a software engineer.
+      </Accordion>
     </section>
   );
 };

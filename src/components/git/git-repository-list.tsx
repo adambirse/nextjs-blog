@@ -15,15 +15,7 @@ interface Repository {
 
 export const GitRepositoryList: React.FC<Repositories> = ({ repositories }) => {
   return (
-    <>
-      <Accordion title={'Repositories'} children={getContent(repositories)}></Accordion>
-    </>
-  );
-};
-
-function getContent(repositories): React.ReactNode {
-  return (
-    <>
+    <Accordion title={'Repositories'}>
       <div className={listStyles.scroller}>
         <ul className={utilStyles.list}>
           {repositories.map((repo, pos) => (
@@ -35,6 +27,6 @@ function getContent(repositories): React.ReactNode {
           ))}
         </ul>
       </div>
-    </>
+    </Accordion>
   );
-}
+};
