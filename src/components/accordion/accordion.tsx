@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Chevron } from './chevron';
+import { Paragraph } from '../basic/paragraph';
 
 const styles = require('./accordion.module.scss');
 
@@ -27,7 +28,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children }): JSX.El
         <div ref={content} style={{ maxHeight: `${setHeight}` }} className={styles.accordion__content}>
           {
             <div className={styles.accordion__text}>
-              <p dangerouslySetInnerHTML={{ __html: children || '' }} />
+              <Paragraph shouldUseDangerouslySetInnerHTML>{children}</Paragraph>
             </div>
           }
         </div>
@@ -44,7 +45,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children }): JSX.El
   return (
     <div className={styles.accordion__section}>
       <button className={`${styles.accordion} ${setActive}`} onClick={toggleAccordion}>
-        <p className={styles.accordion__title}>{title}</p>
+        <Paragraph className={styles.accordion__title}>{title}</Paragraph>
         <Chevron className={`${setRotate}`} width={10} fill={'#777'} />
       </button>
       {getChildContent(children)}

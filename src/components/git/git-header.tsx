@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { Accordion } from '../accordion/accordion';
+import { Paragraph } from '../basic/paragraph';
 
 interface GitOverviewProps {
   name: string;
@@ -23,11 +24,7 @@ const getContent = (name: string, repoCount: number) => {
           <Link href={`https://github.com/${name}/`}>
             <a target="_blank">account</a>
           </Link>
-          {repoCount && (
-            <p id="repos">
-              <p>{repoCount} public repositories.</p>
-            </p>
-          )}
+          {repoCount && <Paragraph id="repos">{repoCount} public repositories.</Paragraph>}
         </div>
       </section>
     </>

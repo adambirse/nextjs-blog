@@ -5,6 +5,7 @@ import Link from 'next/link';
 const chai = require('chai');
 const expect = chai.expect;
 import reactElementToJSXString from 'react-element-to-jsx-string';
+import { Paragraph } from '../../../components/basic/paragraph';
 
 describe('Git header component', () => {
   it('should render with title', function () {
@@ -36,9 +37,7 @@ const getContentWithRepo = (repoCount: number) => {
           <Link href={`https://github.com/myname/`}>
             <a target="_blank">account</a>
           </Link>
-          <p id="repos">
-            <p>{repoCount} public repositories.</p>
-          </p>
+          <Paragraph id="repos">{repoCount} public repositories.</Paragraph>
         </div>
       </section>
     </>

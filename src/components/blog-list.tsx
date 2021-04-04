@@ -18,19 +18,19 @@ export const Blog: React.FC<Props> = ({ allPostsData }) => {
     <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
       <h2 className={utilStyles.headingLg}>Blog</h2>
       <ul className={utilStyles.list}>
-        {allPostsData.length === 0 && <div>No blogs published yet, please come back later</div> }
+        {allPostsData.length === 0 && <div>No blogs published yet, please come back later</div>}
         {allPostsData.length !== 0 &&
-        allPostsData.map((post) => (
-          <li className={utilStyles.listItem} key={post.id}>
-            <Link href={`/posts/${post.id}`}>
-              <a>{post.title}</a>
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={post.date} />
-            </small>
-          </li>
-        ))}
+          allPostsData.map((post) => (
+            <li className={utilStyles.listItem} key={post.id}>
+              <Link href={`/posts/${post.id}`}>
+                <a>{post.title}</a>
+              </Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={post.date} />
+              </small>
+            </li>
+          ))}
       </ul>
     </section>
   );
