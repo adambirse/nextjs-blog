@@ -1,16 +1,14 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { NavBar } from '../../components/navbar';
 import Link from 'next/link';
+import { NavItem } from '../../../components/basic/nav-item';
 var chai = require('chai');
 var expect = chai.expect;
 
-describe('Nav bar component', () => {
+describe('Nav Item component', () => {
   it('should render with data', function () {
-    const wrap = shallow(<NavBar />);
-
-    assertLink(wrap, '/', 'Home');
-    assertLink(wrap, '/git', 'GitHub');
+    const wrap = shallow(<NavItem link="/my-link" text="my-text" />);
+    assertLink(wrap, '/my-link', 'my-text');
   });
 });
 

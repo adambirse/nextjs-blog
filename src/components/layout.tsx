@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 const styles = require('./layout.module.scss');
 const utilStyles = require('../styles/utils.module.scss');
-import { NavBar } from './navbar';
+import { NavBar } from './basic/navbar';
 
 const name = 'Adam Birse';
 export const siteTitle = `Personal site - ${name}`;

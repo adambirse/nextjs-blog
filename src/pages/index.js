@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
-import { About } from '../components/about'
-import { Blog } from '../components/blog-list'
+import React from 'react';
+import Head from 'next/head';
+import Layout, { siteTitle } from '../components/layout';
+import { getSortedPostsData } from '../lib/posts';
+import { About } from '../components/about';
+import { Blog } from '../components/blog-list';
 
-export async function getStaticProps () {
-  const allPostsData = getSortedPostsData()
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData
-    }
-  }
+      allPostsData,
+    },
+  };
 }
 
-export default function Home ({ allPostsData }) {
+export default function Home({ allPostsData }) {
   return (
     <Layout>
       <Head>
@@ -24,5 +24,5 @@ export default function Home ({ allPostsData }) {
       <About />
       <Blog allPostsData={allPostsData} />
     </Layout>
-  )
+  );
 }
