@@ -6,27 +6,9 @@ import html from 'remark-html';
 
 
 export function getSortedData(directory: string, withContent?: boolean) {
-  // Get file names under /posts
   const fileNames = fs.readdirSync(directory);
-  const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '');
+  const allPostsData = fileNames.map((fileName) => extractDataFromFile(fileName, directory, withContent));
 
-    // Read markdown file as string
-    const fullPath = path.join(directory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents);
-const contentHtml = withContent ? 'with content' : 'without content';
-    // Combine the data with the id
-    return {
-      id,
-      contentHtml,
-      date: matterResult.data.date,
-      ...matterResult.data,
-    };
-  });
   // Sort posts by date
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
@@ -69,11 +51,29 @@ async function getContent(matterResult: matter.GrayMatterFile<string>) {
     return contentHtml;
 }
 
-export async function getMetaData(id, directory: string) {
+export function getMetaData(id, directory: string) {
     const fullPath = path.join(directory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
   
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
-  return matterResult;
+    return matterResult;
   }
+
+ function extractDataFromFile(fileName: string, directory: string, withContent?: boolean) {
+        // // Remove ".md" from file name to get id
+        const id = fileName.replace(/\.md$/, '');
+    
+        // Use gray-matter to parse the post metadata section
+        const matterResult =  getMetaData(id,  directory);
+        const contentHtml = withContent ? 'with content' : 'without content';
+        // Combine the data with the id
+        const content = {
+            id,
+            contentHtml,
+            date: matterResult.data.date,
+            ...matterResult.data,
+        }
+        return content;
+}
+
