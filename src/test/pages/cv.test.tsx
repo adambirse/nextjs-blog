@@ -6,8 +6,8 @@ const expect = chai.expect;
 
 
 describe('CV page', () => {
-  it('should render without throwing an error', function () {
+  it('should render with cv listing', function () {
     const wrap = shallow(<CV/>);
-    expect(wrap.find('h1').text()).to.equal('CV');
+    expect(wrap.find('CVListing').length).to.equal(2);
   });
 });
