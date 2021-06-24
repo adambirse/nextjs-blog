@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import remark from 'remark';
-import html from 'remark-html';
 
 
 export async function getSortedData(directory: string, withContent?: boolean) {
@@ -33,22 +31,17 @@ export function getAllIds(directory: string) {
 export async function getData(id, directory: string) {
 
 const matterResult = await getMetaData(id, directory);
+const content = await getContent(matterResult);
 
-  // Use remark to convert markdown into HTML string
-  const contentHtml = await getContent(matterResult);
-
-  // Combine the data with the id and contentHtml
   return {
     id,
-    contentHtml,
+    content,
     ...matterResult.data,
   };
 }
 
 async function getContent(matterResult: matter.GrayMatterFile<string>) {
-    const processedContent = await remark().use(html).process(matterResult.content);
-    const contentHtml = processedContent.toString();
-    return contentHtml;
+    return matterResult.content;
 }
 
 export function getMetaData(id, directory: string) {
@@ -66,15 +59,14 @@ export function getMetaData(id, directory: string) {
     
         // Use gray-matter to parse the post metadata section
         const matterResult =  getMetaData(id,  directory);
-        const contentHtml = withContent ? await getContent(matterResult) : 'without content';
-        console.log(contentHtml);
+        const content = withContent ? await getContent(matterResult) : '';
         // Combine the data with the id
-        const content = {
+        const entry = {
             id,
-            contentHtml,
+            content,
             date: matterResult.data.date,
             ...matterResult.data,
         }
-        return content;
+        return entry;
 }
 

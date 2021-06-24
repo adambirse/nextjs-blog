@@ -11,7 +11,7 @@ describe('CV listing component', () => {
     const wrap = shallow(
       <CVListing company="company" role="Engineer" startDate="12/12/2021" description={jobDescription} />
     );
-    const accordionComponent = wrap.find('Accordion');
+    const accordionComponent = wrap.find('MarkdownAccordion');
     expect(accordionComponent.props().title).to.equal('company - Engineer - 12/12/2021 - present');
   });
 
@@ -25,7 +25,7 @@ describe('CV listing component', () => {
         description={jobDescription}
       />
     );
-    const accordionComponent = wrap.find('Accordion');
+    const accordionComponent = wrap.find('MarkdownAccordion');
     expect(accordionComponent.props().title).to.equal('company - Engineer - 12/12/2021 - 12/12/2022');
   });
   it('should render job description', function () {
@@ -38,9 +38,7 @@ describe('CV listing component', () => {
         description={jobDescription}
       />
     );
-    const accordionComponent = wrap.find('Accordion');
-    const paragraph = accordionComponent.find('Paragraph');
-    expect(paragraph.length == 1).to.be.true;
-    expect(paragraph.props().children).to.equal(jobDescription);
+    const accordionComponent = wrap.find('MarkdownAccordion');
+    expect(accordionComponent.props().markdown).to.equal(jobDescription);
   });
 });

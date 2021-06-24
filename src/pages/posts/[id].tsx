@@ -5,6 +5,8 @@ import utilStyles from '../../styles/utils.module.scss';
 import Head from 'next/head';
 
 import { getAllPostIds, getPostData } from '../../lib/posts';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
@@ -33,7 +35,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <ReactMarkdown>{postData.content}</ReactMarkdown>
       </article>
     </Layout>
   );

@@ -3,34 +3,31 @@ import React from 'react';
 import { CVListing } from '../components/cv/cvListing';
 import Layout from '../components/layout';
 import { getSortedCVData } from '../lib/cvs';
-const utilStyles = require('../styles/utils.module.scss');
 
 
 export async function getStaticProps() {
-  const postData = await getSortedCVData();
+  const cvEntries = await getSortedCVData();
   return {
     props: {
-      postData,
+      cvEntries,
     },
   };
 }
 
-export default function CV({postData}) {
-  console.log(postData);
-
+export default function CV({cvEntries}) {
   return (
     <Layout home={false}>
       <Head>
         <title>CV</title>
       </Head>
-      {postData.length !== 0 &&
-          postData.map((post) => (
+      {cvEntries.length !== 0 &&
+          cvEntries.map((cv) => (
                <CVListing
-        company={post.company}
-        role={post.role}
-        startDate={post.start_date}
-        endDate={post.end_date}
-        description={post.contentHtml}
+        company={cv.company}
+        role={cv.role}
+        startDate={cv.start_date}
+        endDate={cv.end_date}
+        description={cv.content}
       />
           ))}
      

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Accordion } from '../accordion/accordion';
-import { Paragraph } from '../basic/paragraph';
+import { MarkdownAccordion } from '../accordion/markdownAccordion';
 const utilStyles = require('../../styles/utils.module.scss');
 
 interface CVListingProps {
@@ -14,9 +13,7 @@ interface CVListingProps {
 export const CVListing: React.FC<CVListingProps> = ({ company, role, startDate, endDate, description }) => {
   return (
     <section className={utilStyles.headingMd}>
-      <Accordion title={formatTitle(company, role, startDate, endDate)}>
-        <Paragraph id="cvListing">{description}</Paragraph>
-      </Accordion>
+      <MarkdownAccordion title={formatTitle(company, role, startDate, endDate)} markdown={description}/>
     </section>
   );
 };
