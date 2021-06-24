@@ -8,7 +8,5 @@ describe('Nav Bar component', () => {
   it('should render with correct no of links', function () {
     const wrap = shallow(<NavBar />);
     expect(wrap.find('NavItem').length == 3).to.be.true;
-
   });
 });
-
