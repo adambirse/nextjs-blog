@@ -5,7 +5,7 @@ import remark from 'remark';
 import html from 'remark-html';
 
 
-export function getSortedData(directory: string) {
+export function getSortedData(directory: string, withContent?: boolean) {
   // Get file names under /posts
   const fileNames = fs.readdirSync(directory);
   const allPostsData = fileNames.map((fileName) => {
@@ -18,10 +18,11 @@ export function getSortedData(directory: string) {
 
     // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
-
+const contentHtml = withContent ? 'with content' : 'without content';
     // Combine the data with the id
     return {
       id,
+      contentHtml,
       date: matterResult.data.date,
       ...matterResult.data,
     };
@@ -38,20 +39,6 @@ export function getSortedData(directory: string) {
 
 export function getAllIds(directory: string) {
   const fileNames = fs.readdirSync(directory);
-
-  // Returns an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
   return fileNames.map((fileName) => {
     return {
       params: {
@@ -66,8 +53,7 @@ export async function getData(id, directory: string) {
 const matterResult = await getMetaData(id, directory);
 
   // Use remark to convert markdown into HTML string
-  const processedContent = await remark().use(html).process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await getContent(matterResult);
 
   // Combine the data with the id and contentHtml
   return {
@@ -75,6 +61,12 @@ const matterResult = await getMetaData(id, directory);
     contentHtml,
     ...matterResult.data,
   };
+}
+
+async function getContent(matterResult: matter.GrayMatterFile<string>) {
+    const processedContent = await remark().use(html).process(matterResult.content);
+    const contentHtml = processedContent.toString();
+    return contentHtml;
 }
 
 export async function getMetaData(id, directory: string) {
