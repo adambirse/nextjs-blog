@@ -7,6 +7,7 @@ date: '2015-01-01'
 ---
 
 **Things what I did when I was here at job 2.**
+
 - this
 - that
 

@@ -23,7 +23,6 @@ export const MarkdownAccordion: React.FC<MarkdownAccordionProps> = ({ title, mar
     setRotateState(setActive === 'active' ? `${styles.accordion__icon}` : `${styles.accordion__icon} ${styles.rotate}`);
   };
 
-
   return (
     <div className={styles.accordion__section}>
       <button className={`${styles.accordion} ${setActive}`} onClick={toggleAccordion}>
@@ -31,8 +30,8 @@ export const MarkdownAccordion: React.FC<MarkdownAccordionProps> = ({ title, mar
         <Chevron className={`${setRotate}`} width={10} fill={'#777'} />
       </button>
       <div ref={content} style={{ maxHeight: `${setHeight}` }} className={styles.accordion__content}>
-          <ReactMarkdown>{markdown}</ReactMarkdown>
-        </div>
+        <ReactMarkdown>{markdown}</ReactMarkdown>
+      </div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const cvEntries = [
     company: 'Company one',
     role: 'Engineer',
     start_date: '2020-01-01',
-    end_date: '2020-01-01'
+    end_date: '2020-01-01',
   },
   {
     id: 'job-two',
@@ -21,10 +21,9 @@ const cvEntries = [
     company: 'Company two',
     role: 'Tech lead',
     start_date: '2020-01-01',
-    end_date: '2020-01-01'
-  }
-]
-
+    end_date: '2020-01-01',
+  },
+];
 
 describe('CV page', () => {
   it('should render with cv listing', function () {

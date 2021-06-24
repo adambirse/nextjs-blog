@@ -13,7 +13,7 @@ interface CVListingProps {
 export const CVListing: React.FC<CVListingProps> = ({ company, role, startDate, endDate, description }) => {
   return (
     <section className={utilStyles.headingMd}>
-      <MarkdownAccordion title={formatTitle(company, role, startDate, endDate)} markdown={description}/>
+      <MarkdownAccordion title={formatTitle(company, role, startDate, endDate)} markdown={description} />
     </section>
   );
 };
