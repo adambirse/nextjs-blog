@@ -5,10 +5,10 @@ import remark from 'remark';
 import html from 'remark-html';
 
 
-export function getSortedData(directory: string, withContent?: boolean) {
+export async function getSortedData(directory: string, withContent?: boolean) {
   const fileNames = fs.readdirSync(directory);
-  const allPostsData = fileNames.map((fileName) => extractDataFromFile(fileName, directory, withContent));
-
+  const promises = fileNames.map((fileName) => extractDataFromFile(fileName, directory, withContent));
+const allPostsData = await Promise.all(promises);
   // Sort posts by date
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
@@ -60,13 +60,14 @@ export function getMetaData(id, directory: string) {
     return matterResult;
   }
 
- function extractDataFromFile(fileName: string, directory: string, withContent?: boolean) {
+ async function extractDataFromFile(fileName: string, directory: string, withContent?: boolean) {
         // // Remove ".md" from file name to get id
         const id = fileName.replace(/\.md$/, '');
     
         // Use gray-matter to parse the post metadata section
         const matterResult =  getMetaData(id,  directory);
-        const contentHtml = withContent ? 'with content' : 'without content';
+        const contentHtml = withContent ? await getContent(matterResult) : 'without content';
+        console.log(contentHtml);
         // Combine the data with the id
         const content = {
             id,

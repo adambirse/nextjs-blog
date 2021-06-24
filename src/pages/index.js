@@ -7,7 +7,7 @@ import { About } from '../components/about';
 import { Blog } from '../components/blog-list';
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
   return {
     props: {
       allPostsData,
