@@ -5,9 +5,9 @@ import matter from 'gray-matter';
 export async function getSortedData(directory: string, withContent?: boolean) {
   const fileNames = fs.readdirSync(directory);
   const promises = fileNames.map((fileName) => extractDataFromFile(fileName, directory, withContent));
-  const allPostsData = await Promise.all(promises);
-  // Sort posts by date
-  return allPostsData.sort((a, b) => {
+  const data = await Promise.all(promises);
+  // Sort data by date
+  return data.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
@@ -21,7 +21,7 @@ export function getAllIds(directory: string) {
   return fileNames.map((fileName) => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, ''),
+        id: extractId(fileName),
       },
     };
   });
@@ -46,16 +46,14 @@ export function getMetaData(id, directory: string) {
   const fullPath = path.join(directory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-  // Use gray-matter to parse the post metadata section
+  // Use gray-matter to parse the metadata section
   const matterResult = matter(fileContents);
   return matterResult;
 }
 
 async function extractDataFromFile(fileName: string, directory: string, withContent?: boolean) {
-  // // Remove ".md" from file name to get id
-  const id = fileName.replace(/\.md$/, '');
+  const id = extractId(fileName);
 
-  // Use gray-matter to parse the post metadata section
   const matterResult = getMetaData(id, directory);
   const content = withContent ? await getContent(matterResult) : '';
   // Combine the data with the id
@@ -66,4 +64,9 @@ async function extractDataFromFile(fileName: string, directory: string, withCont
     ...matterResult.data,
   };
   return entry;
+}
+
+function extractId(fileName: string) {
+  // Remove ".md" from file name to get id
+  return fileName.replace(/\.md$/, '');
 }
