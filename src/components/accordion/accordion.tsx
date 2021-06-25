@@ -45,7 +45,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children }): JSX.El
   return (
     <div className={styles.accordion__section}>
       <button className={`${styles.accordion} ${setActive}`} onClick={toggleAccordion}>
-        <Paragraph className={styles.accordion__title}>{title}</Paragraph>
+        <Paragraph id= 'title' className={styles.accordion__title}>{title}</Paragraph>
         <Chevron className={`${setRotate}`} width={10} fill={'#777'} />
       </button>
       {getChildContent(children)}
