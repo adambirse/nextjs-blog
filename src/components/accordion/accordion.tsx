@@ -23,23 +23,13 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children }): JSX.El
   };
 
   const getChildContent = (children: React.ReactNode | string) => {
-    if (typeof children === 'string') {
-      return (
-        <div ref={content} style={{ maxHeight: `${setHeight}` }} className={styles.accordion__content}>
-          {
-            <div className={styles.accordion__text}>
-              <Paragraph shouldUseDangerouslySetInnerHTML>{children}</Paragraph>
-            </div>
-          }
-        </div>
-      );
-    } else {
-      return (
-        <div ref={content} style={{ maxHeight: `${setHeight}` }} className={styles.accordion__content}>
-          {<div className={styles.accordion__text}>{children}</div>}
-        </div>
-      );
-    }
+    return (
+      <div ref={content} style={{ maxHeight: `${setHeight}` }} className={styles.accordion__content}>
+        {<div className={styles.accordion__text}>
+          <Paragraph id='content'>{children}</Paragraph>
+        </div>}
+      </div>
+    );
   };
 
   return (
