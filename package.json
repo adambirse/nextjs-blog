@@ -29,9 +29,9 @@
     "*.{js,json,ts,tsx,yaml}": "prettier --write"
   },
   "dependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4",
     "@babel/register": "^7.15.3",
     "chai": "^4.3.4",
     "date-fns": "^2.23.0",
@@ -46,13 +46,13 @@
     "react-markdown": "^6.0.3",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "sass": "^1.38.2"
+    "sass": "^1.39.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.21",
     "@types/mocha": "^8.2.3",
-    "@types/node": "^14.17.12",
-    "@types/react": "^17.0.19",
+    "@types/node": "^14.17.14",
+    "@types/react": "^17.0.20",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.32.0",
@@ -62,7 +62,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.25.0",
+    "eslint-plugin-react": "^7.25.1",
     "husky": "^5.2.0",
     "ignore-styles": "^5.0.1",
     "jsdom": "16.4.0",
