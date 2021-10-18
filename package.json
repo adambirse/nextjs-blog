@@ -46,19 +46,19 @@
     "react-markdown": "^6.0.3",
     "remark": "^13.0.0",
     "remark-html": "^13.0.2",
-    "sass": "^1.42.1"
+    "sass": "^1.43.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.22",
     "@types/mocha": "^8.2.3",
-    "@types/node": "^14.17.21",
-    "@types/react": "^17.0.27",
+    "@types/node": "^14.17.27",
+    "@types/react": "^17.0.30",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-promise": "^4.3.1",
@@ -73,6 +73,6 @@
     "react-element-to-jsx-string": "^14.3.2",
     "sass-lint-auto-fix": "^0.21.2",
     "ts-node": "^9.1.1",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.4"
   }
 }
