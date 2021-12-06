@@ -34,7 +34,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/register": "^7.16.0",
     "chai": "^4.3.4",
-    "date-fns": "^2.26.0",
+    "date-fns": "^2.27.0",
     "format-package": "^6.1.0",
     "gray-matter": "^4.0.3",
     "mocha": "^8.4.0",
@@ -46,12 +46,12 @@
     "react-markdown": "^6.0.3",
     "remark": "^13.0.0",
     "remark-html": "^13.0.2",
-    "sass": "^1.43.5"
+    "sass": "^1.44.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.22",
     "@types/mocha": "^8.2.3",
-    "@types/node": "^14.17.34",
+    "@types/node": "^14.18.0",
     "@types/react": "^17.0.37",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
