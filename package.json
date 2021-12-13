@@ -46,10 +46,10 @@
     "react-markdown": "^6.0.3",
     "remark": "^13.0.0",
     "remark-html": "^13.0.2",
-    "sass": "^1.44.0"
+    "sass": "^1.45.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.22",
+    "@types/chai": "^4.3.0",
     "@types/mocha": "^8.2.3",
     "@types/node": "^14.18.0",
     "@types/react": "^17.0.37",
@@ -73,6 +73,6 @@
     "react-element-to-jsx-string": "^14.3.4",
     "sass-lint-auto-fix": "^0.21.2",
     "ts-node": "^9.1.1",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.3"
   }
 }
